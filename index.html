@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Isaiah Maresi – Career & Leadership Coach | Entrepreneurship & Financial Literacy Trainer</title>
+  <meta name="description" content="Isaiah Maresi helps individuals and organizations transform knowledge into action. Coach, mentor, facilitator and consultant specializing in career & leadership coaching, entrepreneurship and financial literacy training in Nairobi, Kenya." />
+  <meta property="og:title" content="Isaiah Maresi – Career & Leadership Coach" />
+  <meta property="og:description" content="Helping people bridge the Knowing-Doing gap through coaching, facilitation, and the ACTION Model." />
+  <meta property="og:type" content="website" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #1a2e1a;
+      --green-mid: #2d4a2d;
+      --green-accent: #4caf50;
+      --green-bright: #5dbf5d;
+      --green-light: #e8f5e9;
+      --white: #ffffff;
+      --off-white: #f9fafb;
+      --gray-light: #f3f4f6;
+      --gray-mid: #9ca3af;
+      --gray-text: #4b5563;
+      --dark: #111827;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 70px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--green-accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-logo-text { color: var(--white); }
+    .nav-logo-text strong { display: block; font-size: 15px; font-weight: 700; }
+    .nav-logo-text span { display: block; font-size: 11px; color: var(--gray-mid); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-links a {
+      color: var(--gray-mid);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-accent); }
+
+    .btn-primary {
+      background: var(--green-accent);
+      color: var(--white);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background .2s, transform .15s;
+    }
+    .btn-primary:hover { background: var(--green-bright); transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+      padding: 10px 22px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background .2s, color .2s;
+    }
+    .btn-outline:hover { background: var(--white); color: var(--green-dark); }
+
+    .btn-dark {
+      background: var(--green-dark);
+      color: var(--white);
+      border: none;
+      padding: 12px 26px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background .2s;
+    }
+    .btn-dark:hover { background: #0f1f0f; }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      background: var(--green-dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 5% 60px;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #home::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(76,175,80,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      color: var(--green-accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-sub {
+      color: #b0bec5;
+      font-size: 16px;
+      line-height: 1.7;
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    .hero-stat-icon {
+      width: 36px; height: 36px;
+      background: rgba(76,175,80,.15);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--gray-mid);
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 520px;
+    }
+
+    .hero-image-wrapper img {
+      width: 100%; height: 100%;
+      object-fit: contain;
+      object-position:center top;
+    }
+
+    /* placeholder image for demo */
+    .img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #2d5a27 0%, #1a3a15 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.3);
+      font-size: 60px;
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 80px 5%; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-accent);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-title-line {
+      display: block;
+      width: 50px; height: 3px;
+      background: var(--green-accent);
+      margin: 0 auto 48px;
+      border-radius: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 420px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+
+    .about-image .img-placeholder { height: 100%; }
+
+    .about-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-accent);
+      margin-bottom: 12px;
+    }
+
+    .about-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.5vw, 36px);
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about-text {
+      color: var(--gray-text);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 12px;
+    }
+
+    .about-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 24px 0 32px;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--gray-text);
+      font-weight: 500;
+    }
+
+    .skill-check {
+      width: 20px; height: 20px;
+      background: var(--green-accent);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 11px;
+      flex-shrink: 0;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 0;
+    }
+
+    .project-card {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 2px 16px rgba(0,0,0,.08);
+      transition: transform .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,.14);
+    }
+
+    .project-img {
+      height: 180px;
+      overflow: hidden;
+    }
+
+    .project-img .img-placeholder {
+      height: 100%;
+      background: linear-gradient(135deg, #2d5a27 0%, #1a3a15 100%);
+    }
+
+    .project-body { padding: 18px; }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--gray-text);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .project-link {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: gap .2s;
+    }
+
+    .project-link:hover { gap: 8px; }
+
+    /* ── ACHIEVEMENTS ── */
+    #achievements {
+      background: var(--green-dark);
+      padding: 60px 5%;
+    }
+
+    .achievements-wrapper {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .achievements-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--green-accent);
+      margin-bottom: 24px;
+    }
+
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .achievement-item {
+      background: rgba(255,255,255,.06);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+    }
+
+    .achievement-icon {
+      font-size: 28px;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .achievement-num {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--white);
+      display: block;
+    }
+
+    .achievement-label {
+      font-size: 12px;
+      color: var(--gray-mid);
+      margin-top: 4px;
+    }
+
+    .cta-box {
+      background: var(--green-accent);
+      border-radius: 16px;
+      padding: 36px 30px;
+    }
+
+    .cta-box h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: rgba(255,255,255,.85);
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    #testimonials { background: var(--gray-light); }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+      position: relative;
+    }
+
+    .testimonial-quote {
+      font-size: 48px;
+      color: var(--green-accent);
+      line-height: 1;
+      margin-bottom: 8px;
+      font-family: Georgia, serif;
+    }
+
+    .testimonial-text {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      color: var(--green-mid);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--dark);
+    }
+
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--gray-mid);
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--white); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--off-white);
+      border-radius: 14px;
+      padding: 32px 26px;
+      border: 1px solid transparent;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .service-card:hover {
+      border-color: var(--green-accent);
+      box-shadow: 0 8px 30px rgba(76,175,80,.12);
+    }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: var(--green-light);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .service-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .service-text {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--off-white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .contact-info p {
+      color: var(--gray-text);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .contact-icon {
+      width: 42px; height: 42px;
+      background: var(--green-light);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .contact-detail-text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .contact-detail-text span {
+      font-size: 14px;
+      color: var(--gray-text);
+    }
+
+    .contact-form { background: var(--white); border-radius: 16px; padding: 36px; box-shadow: 0 4px 24px rgba(0,0,0,.07); }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .form-group { margin-bottom: 18px; }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: var(--font-body);
+      color: var(--dark);
+      background: var(--white);
+      transition: border-color .2s;
+      outline: none;
+      resize: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--green-accent); }
+
+    .form-group textarea { height: 110px; }
+
+    .form-submit { width: 100%; padding: 14px; border-radius: 8px; font-size: 15px; }
+
+    /* ── IMPACT ── */
+    #impact { background: var(--white); }
+
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .impact-card {
+      border-left: 4px solid var(--green-accent);
+      padding: 24px 20px;
+      background: var(--off-white);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .impact-card h4 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 10px;
+    }
+
+    .impact-card p {
+      font-size: 14px;
+      color: var(--gray-text);
+      line-height: 1.7;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--green-dark);
+      color: var(--white);
+      padding: 60px 5% 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1.5fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand p {
+      font-size: 13px;
+      color: #9ca3af;
+      line-height: 1.7;
+      margin: 14px 0 24px;
+      max-width: 260px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background .2s, color .2s;
+    }
+
+    .social-btn:hover { background: var(--green-accent); color: white; }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a {
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+    .footer-col ul a:hover { color: var(--green-accent); }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .footer-contact-item span:first-child { color: var(--green-accent); font-size: 15px; }
+    .footer-contact-item a,
+    .footer-contact-item p { color: #9ca3af; font-size: 13px; text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--green-accent); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 24px;
+      text-align: center;
+      color: #6b7280;
+      font-size: 13px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #home { grid-template-columns: 1fr; text-align: center; }
+      .hero-sub { margin: 0 auto 36px; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-image-wrapper { height: 360px; max-width: 500px; margin: 0 auto; }
+      #about { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+      .achievements-wrapper { grid-template-columns: 1fr; }
+      .achievements-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      #contact { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .impact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      section { padding: 60px 4%; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-wrap: wrap; gap: 20px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ NAV ══════════ -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">🌱</div>
+    <div class="nav-logo-text">
+      <strong>Isaiah Maresi</strong>
+      <span>Career & Leadership Coach</span>
+    </div>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <a href="#contact" class="btn-primary">Let's Work Together →</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section id="home">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Coach · Mentor · Facilitator · Consultant</p>
+    <h1 class="hero-headline">Bridging the<br>Knowing-Doing<br>Gap.</h1>
+    <p class="hero-sub">I help individuals and organizations transform knowledge into ACTION. Career & leadership coaching, entrepreneurship and financial literacy training for youth, graduates, and emerging leaders across Kenya.</p>
+    <div class="hero-ctas">
+      <a href="project.html" class="btn-primary">View My Work →</a>
+      <a href="mailto:maresiisaiah@gmail.com" class="btn-outline">Get In Touch ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-icon">🏆</div>
+        <div class="hero-stat-num">9+</div>
+        <div class="hero-stat-label">Years Experience</div>
+      </div>
+      <div>
+        <div class="hero-stat-icon">👥</div>
+        <div class="hero-stat-num">5,000+</div>
+        <div class="hero-stat-label">Youth Trained</div>
+      </div>
+      <div>
+        <div class="hero-stat-icon">📋</div>
+        <div class="hero-stat-num">5,720+</div>
+        <div class="hero-stat-label">LinkedIn Followers</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-image-wrapper">
+    <img src="hero.webp" alt="Isaiah hero image">
+  </div>
+</section>
+
+<!-- ══════════ ABOUT ══════════ -->
+<section id="about">
+  <div class="about-image">
+    <img src="about.webp" alt="Isaiah about image">
+  </div>
+
+  <div>
+    <p class="about-eyebrow">About Me</p>
+    <h2 class="about-title">Knowing Isn't Enough.<br>I Help You Do.</h2>
+    <p class="about-text">For most people, there's a wide gap between what they know and what they actually do. I help young people, graduates, and emerging leaders close that gap — moving from potential to performance using my ACTION Model: Awareness → Clarity → Translation → Implementation → Ownership → Navigation.</p>
+    <p class="about-text">As Sustainable Livelihoods Officer at SHOFCO, I train and equip thousands of youth with employability and entrepreneurship skills, while mentoring emerging leaders and supporting community-based savings groups across Nairobi's informal settlements.</p>
+
+    <div class="about-skills">
+      <div class="skill-item"><div class="skill-check">✓</div> Career &amp; Leadership Coaching</div>
+      <div class="skill-item"><div class="skill-check">✓</div> Entrepreneurship &amp; Financial Literacy Training</div>
+      <div class="skill-item"><div class="skill-check">✓</div> CV/Resume Writing &amp; Career Readiness</div>
+      <div class="skill-item"><div class="skill-check">✓</div> Business Mentorship &amp; Facilitation</div>
+    </div>
+
+    <a href="about.html" class="btn-primary">Read More About Me →</a>
+  </div>
+</section>
+
+<!-- ══════════ PROJECTS ══════════ -->
+<section id="projects">
+  <p class="section-eyebrow">My Projects</p>
+  <h2 class="section-title">Projects That Create Real Impact</h2>
+  <span class="section-title-line"></span>
+
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-img"><div class="img-placeholder" style="background:linear-gradient(135deg,#2d6a2d,#1a4a1a)">🏫</div></div>
+      <div class="project-body">
+        <h3 class="project-title">Youth Employability Training (SHOFCO)</h3>
+        <p class="project-desc">Trained 5,000+ youth in resume writing, interview skills, and job search strategies, lifting job placements among graduates.</p>
+        <a href="project.html#project-employability" class="project-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><div class="img-placeholder" style="background:linear-gradient(135deg,#3a5a2a,#254020)">💰</div></div>
+      <div class="project-body">
+        <h3 class="project-title">SHOFCO SUN Self-Help Group Network</h3>
+        <p class="project-desc">Facilitated and supervised 90+ Self-Help Groups, growing a savings culture across Nairobi's informal settlements.</p>
+        <a href="project.html#project-vsla" class="project-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><div class="img-placeholder" style="background:linear-gradient(135deg,#2a5a3a,#1a3a25)">🎓</div></div>
+      <div class="project-body">
+        <h3 class="project-title">Leadership Coaching with Taifa Teule</h3>
+        <p class="project-desc">Trained 200+ emerging leaders through weekly leadership facilitation sessions focused on confidence and action.</p>
+        <a href="project.html#project-leadership" class="project-link">View Project →</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-img"><div class="img-placeholder" style="background:linear-gradient(135deg,#4a5a1a,#2a3a10)">🌾</div></div>
+      <div class="project-body">
+        <h3 class="project-title">Global Mentorship Initiative</h3>
+        <p class="project-desc">Mentoring college students and early-career professionals worldwide on career readiness, CVs, and interview prep.</p>
+        <a href="project.html#project-mentorship" class="project-link">View Project →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ ACHIEVEMENTS / CTA ══════════ -->
+<section id="achievements" style="padding:60px 5%;">
+  <div class="achievements-wrapper">
+    <div>
+      <p class="achievements-eyebrow">My Achievements</p>
+      <div class="achievements-grid">
+        <div class="achievement-item">
+          <span class="achievement-icon">👤</span>
+          <span class="achievement-num">5,000+</span>
+          <div class="achievement-label">Youth Trained</div>
+        </div>
+        <div class="achievement-item">
+          <span class="achievement-icon">🤝</span>
+          <span class="achievement-num">90+</span>
+          <div class="achievement-label">Self-Help Groups Facilitated</div>
+        </div>
+        <div class="achievement-item">
+          <span class="achievement-icon">✅</span>
+          <span class="achievement-num">200+</span>
+          <div class="achievement-label">Leaders Coached</div>
+        </div>
+        <div class="achievement-item">
+          <span class="achievement-icon">🏆</span>
+          <span class="achievement-num">9+</span>
+          <div class="achievement-label">Years of Experience</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      <h3>Let's Work Together</h3>
+      <p>I am available for partnerships, collaborations, consultancies, and speaking engagements.</p>
+      <a href="#contact" class="btn-dark">Get In Touch →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section id="services">
+  <p class="section-eyebrow">What I Offer</p>
+  <h2 class="section-title">Services</h2>
+  <span class="section-title-line"></span>
+
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🧭</div>
+      <h3 class="service-title">Career &amp; Leadership Coaching</h3>
+      <p class="service-text">One-on-one and group coaching that helps professionals and emerging leaders gain clarity, build confidence, and take consistent action toward their goals.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">💵</div>
+      <h3 class="service-title">Entrepreneurship &amp; Financial Literacy Training</h3>
+      <p class="service-text">Hands-on training in business idea generation, financial planning, savings mobilization, and enterprise development for youth and small business owners.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🎯</div>
+      <h3 class="service-title">Youth Employability Training</h3>
+      <p class="service-text">Job-readiness programs covering resume writing, interview skills, networking, and workplace etiquette that turn job seekers into confident candidates.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📄</div>
+      <h3 class="service-title">CV/Resume Writing &amp; Career Readiness</h3>
+      <p class="service-text">Professional CV revamps and career readiness coaching that help job seekers tell their story effectively and get noticed by employers.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3 class="service-title">Program Management &amp; Strategy</h3>
+      <p class="service-text">Designing, coordinating, and delivering donor-funded and community-based programs from strategy through to execution and reporting.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🤝</div>
+      <h3 class="service-title">Business Mentorship &amp; Facilitation</h3>
+      <p class="service-text">Ongoing mentorship for entrepreneurs and MSMEs to scale their businesses, plus facilitation of trainings, workshops, and leadership sessions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ IMPACT ══════════ -->
+<section id="impact" style="background:var(--off-white);">
+  <p class="section-eyebrow">My Impact</p>
+  <h2 class="section-title">Creating Lasting Change</h2>
+  <span class="section-title-line"></span>
+
+  <div class="impact-grid">
+    <div class="impact-card">
+      <h4>Youth Employability</h4>
+      <p>5,000+ youth and recent graduates trained on resume writing, job interviewing, and job search strategies — resulting in a 50% increase in job placement rates.</p>
+    </div>
+    <div class="impact-card">
+      <h4>Financial Inclusion</h4>
+      <p>90+ self-help groups facilitated and 500+ members recruited into SHOFCO SACCO, mobilizing community savings and reducing reliance on informal lenders.</p>
+    </div>
+    <div class="impact-card">
+      <h4>Leadership Development</h4>
+      <p>200+ emerging leaders trained through weekly leadership coaching with Taifa Teule Network, building confident, solutions-driven community leaders.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section id="testimonials">
+  <p class="section-eyebrow">Testimonials</p>
+  <h2 class="section-title">What People Say</h2>
+  <span class="section-title-line"></span>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">I had the pleasure of working with Isaiah on community development and mentorship initiatives. He is passionate about empowering young people and supporting grassroots groups — his ability to facilitate training, mobilize communities, and inspire action makes him a valuable leader.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">DM</div>
+        <div>
+          <div class="testimonial-name">Denis Mwirigi Michubu</div>
+          <div class="testimonial-role">Programme Lead, Gender Advocacy &amp; Youth Empowerment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Isaiah's training program completely transformed how our group manages finances. We now have savings, we have confidence, and we have a plan for the future.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SU</div>
+        <div>
+          <div class="testimonial-name">SHOFCO SUN Group Member</div>
+          <div class="testimonial-role">Self-Help Group, Mukuru, Nairobi</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-quote">"</div>
+      <p class="testimonial-text">Isaiah is collaborative, adaptable, and deeply committed to empowering others to build sustainable livelihoods. He would be a valuable asset to any organization focused on youth empowerment and community development.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AJ</div>
+        <div>
+          <div class="testimonial-name">Alex Juma</div>
+          <div class="testimonial-role"> Economist,Web Developer &amp; Certified Facilitator</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section id="contact">
+  <div class="contact-info">
+    <h2>Get In Touch</h2>
+    <p>I'm available for partnerships, collaborations, training consultancies, and speaking engagements. Reach out and let's create impact together.</p>
+
+    <div class="contact-detail">
+      <div class="contact-icon">📞</div>
+      <div class="contact-detail-text">
+        <strong>WhatsApp</strong>
+        <span>0705 694 510</span>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-detail-text">
+        <strong>Email</strong>
+        <span>maresiisaiah@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="contact-detail">
+      <div class="contact-icon">📍</div>
+      <div class="contact-detail-text">
+        <strong>Location</strong>
+        <span>Nairobi, Kenya</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-form">
+    <h3 style="font-family:var(--font-display);font-size:22px;font-weight:700;margin-bottom:24px;">Send a Message</h3>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" placeholder="Your first name" />
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" placeholder="Your last name" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      <input type="email" placeholder="your@email.com" />
+    </div>
+
+    <div class="form-group">
+      <label>Subject</label>
+      <select>
+        <option>Select a subject</option>
+        <option>Partnership Inquiry</option>
+        <option>Training Consultancy</option>
+        <option>Speaking Engagement</option>
+        <option>Project Collaboration</option>
+        <option>General Inquiry</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea placeholder="Tell me about your project or inquiry…"></textarea>
+    </div>
+
+    <button class="btn-primary form-submit" onclick="alert('Message sent! Isaiah will get back to you soon.')">Send Message →</button>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="nav-logo-icon">🌱</div>
+        <div class="nav-logo-text">
+          <strong style="font-size:16px;color:white;">Isaiah Maresi</strong>
+          <span>Career & Leadership Coach</span>
+        </div>
+      </div>
+      <p>I help individuals &amp; organizations transform knowledge into ACTION to bridge the Knowing-Doing gap — through coaching, mentorship, facilitation, and training.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Facebook">f</a>
+        <a href="#" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="https://www.linkedin.com/in/isaiahmaresi" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="#" class="social-btn" aria-label="Instagram">◎</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Career &amp; Leadership Coaching</a></li>
+        <li><a href="#services">Entrepreneurship Training</a></li>
+        <li><a href="#services">Youth Employability Training</a></li>
+        <li><a href="#services">CV/Resume Writing</a></li>
+        <li><a href="#services">Business Mentorship</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact Me</h4>
+      <div class="footer-contact-item">
+        <span>📞</span>
+        <a href="tel:+254705694510">0705 694 510</a>
+      </div>
+      <div class="footer-contact-item">
+        <span>✉️</span>
+        <a href="mailto:maresiisaiah@gmail.com">maresiisaiah@gmail.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <span>📍</span>
+        <p>Nairobi, Kenya</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © Isaiah Maresi. All Rights Reserved.
+  </div>
+</footer>
+
+<script>
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

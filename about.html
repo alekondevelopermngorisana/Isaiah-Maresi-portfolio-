@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – Isaiah Maresi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark: #1a2e1a;
+      --green-mid: #2d4a2d;
+      --green-accent: #4caf50;
+      --green-bright: #5dbf5d;
+      --green-light: #e8f5e9;
+      --white: #ffffff;
+      --off-white: #f9fafb;
+      --gray-light: #f3f4f6;
+      --gray-mid: #9ca3af;
+      --gray-text: #4b5563;
+      --dark: #111827;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--dark); background: var(--white); line-height: 1.6; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--green-dark);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 70px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-icon { width: 40px; height: 40px; background: var(--green-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .nav-logo-text { color: var(--white); }
+    .nav-logo-text strong { display: block; font-size: 15px; font-weight: 700; }
+    .nav-logo-text span { display: block; font-size: 11px; color: var(--gray-mid); }
+    .nav-links { display: flex; list-style: none; gap: 28px; }
+    .nav-links a { color: var(--gray-mid); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--green-accent); }
+    .btn-primary { background: var(--green-accent); color: var(--white); border: none; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, transform .15s; }
+    .btn-primary:hover { background: var(--green-bright); transform: translateY(-1px); }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--green-dark);
+      padding: 140px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(76,175,80,.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; color: var(--green-accent); text-decoration: none; font-size: 13px; font-weight: 600; margin-bottom: 20px; transition: gap .2s; }
+    .back-link:hover { gap: 10px; }
+    .page-eyebrow { color: var(--green-accent); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .page-headline { font-family: var(--font-display); font-size: clamp(34px, 5vw, 54px); font-weight: 800; color: var(--white); line-height: 1.1; margin-bottom: 18px; }
+    .page-sub { color: #b0bec5; font-size: 16px; line-height: 1.7; }
+    .hero-portrait {
+      border-radius: 20px; overflow: hidden; height: 440px;
+      box-shadow: 0 24px 60px rgba(0,0,0,.35);
+    }
+    .portrait-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(145deg, #2d5a27 0%, #1a3a15 60%, #0f2010 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; color: rgba(255,255,255,.25);
+    }
+    .portrait-placeholder img{
+      object-fit:contain;
+    }
+    .portrait-placeholder .icon { font-size: 72px; }
+    .portrait-placeholder p { font-size: 14px; }
+
+    /* ── BIO ── */
+    .bio-section { padding: 80px 5%; background: var(--white); }
+    .bio-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 60px; align-items: start; }
+    .section-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--green-accent); margin-bottom: 12px; }
+    .section-title { font-family: var(--font-display); font-size: clamp(26px, 3.5vw, 36px); font-weight: 700; color: var(--dark); margin-bottom: 20px; line-height: 1.2; }
+    .bio-text { font-size: 15px; color: var(--gray-text); line-height: 1.85; margin-bottom: 18px; }
+    .bio-highlight { border-left: 3px solid var(--green-accent); padding: 16px 20px; background: var(--green-light); border-radius: 0 10px 10px 0; margin: 24px 0; font-size: 15px; color: var(--green-mid); font-style: italic; line-height: 1.7; font-weight: 500; }
+
+    /* sidebar */
+    .bio-sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sidebar-card { background: var(--off-white); border-radius: 14px; padding: 24px; }
+    .sidebar-card h4 { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 16px; }
+    .info-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #e5e7eb; font-size: 13px; }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .label { color: var(--gray-mid); font-weight: 500; }
+    .info-row .value { color: var(--dark); font-weight: 600; text-align: right; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .tag { background: var(--green-light); color: var(--green-mid); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; }
+    .cv-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--green-accent); color: var(--white); border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s; margin-top: 4px; }
+    .cv-btn:hover { background: var(--green-bright); }
+
+    /* ── TIMELINE ── */
+    .timeline-section { padding: 80px 5%; background: var(--off-white); }
+    .timeline-section .section-eyebrow, .timeline-section .section-title { text-align: center; }
+    .section-line { display: block; width: 50px; height: 3px; background: var(--green-accent); margin: 0 auto 52px; border-radius: 2px; }
+    .timeline { position: relative; max-width: 760px; margin: 0 auto; }
+    .timeline::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: var(--green-light); }
+    .timeline-item { display: grid; grid-template-columns: 44px 1fr; gap: 24px; margin-bottom: 36px; position: relative; }
+    .timeline-dot { width: 44px; height: 44px; background: var(--green-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; position: relative; z-index: 1; box-shadow: 0 0 0 6px var(--off-white); }
+    .timeline-body { background: var(--white); border-radius: 12px; padding: 22px 24px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .timeline-date { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-accent); margin-bottom: 6px; }
+    .timeline-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .timeline-org { font-size: 13px; color: var(--gray-mid); font-weight: 500; margin-bottom: 10px; }
+    .timeline-desc { font-size: 14px; color: var(--gray-text); line-height: 1.7; }
+
+    /* ── EDUCATION ── */
+    .education-section { padding: 80px 5%; background: var(--white); }
+    .education-section .section-eyebrow, .education-section .section-title { text-align: center; }
+    .edu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .edu-card { background: var(--off-white); border-radius: 14px; padding: 28px 22px; border-top: 3px solid var(--green-accent); }
+    .edu-icon { font-size: 32px; margin-bottom: 14px; }
+    .edu-degree { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; line-height: 1.3; }
+    .edu-institution { font-size: 13px; color: var(--green-accent); font-weight: 600; margin-bottom: 4px; }
+    .edu-year { font-size: 12px; color: var(--gray-mid); }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-section { padding: 80px 5%; background: var(--gray-light); }
+    .certs-section .section-eyebrow, .certs-section .section-title { text-align: center; }
+    .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .cert-card { background: var(--white); border-radius: 12px; padding: 22px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .cert-badge { width: 52px; height: 52px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; }
+    .cert-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; line-height: 1.4; }
+    .cert-issuer { font-size: 11px; color: var(--gray-mid); }
+
+    /* ── SKILLS ── */
+    .skills-section { padding: 80px 5%; background: var(--white); }
+    .skills-section .section-eyebrow, .skills-section .section-title { text-align: center; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .skill-group { background: var(--off-white); border-radius: 14px; padding: 28px; }
+    .skill-group-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+    .skill-bar-item { margin-bottom: 14px; }
+    .skill-bar-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--gray-text); font-weight: 500; margin-bottom: 6px; }
+    .skill-bar-track { background: #e5e7eb; border-radius: 4px; height: 6px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; background: var(--green-accent); border-radius: 4px; }
+
+    /* ── VIDEOS ── */
+    .videos-section { padding: 80px 5%; background: var(--white); }
+    .videos-section .section-eyebrow, .videos-section .section-title { text-align: center; }
+    .videos-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 980px; margin: 0 auto; }
+    .video-card { background: var(--off-white); border-radius: 14px; overflow: hidden; }
+    .video-frame-wrap { position: relative; width: 100%; padding-top: 56.25%; /* 16:9 */ }
+    .video-frame-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-caption { padding: 16px 20px; }
+    .video-caption h4 { font-family: var(--font-display); font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+    .video-caption p { font-size: 13px; color: var(--gray-mid); }
+
+    /* ── PHOTO GALLERY ── */
+    .gallery-section { padding: 80px 5%; background: var(--green-dark); }
+    .gallery-section .section-eyebrow, .gallery-section .section-title { text-align: center; color: var(--white); }
+    .gallery-section .section-line { background: var(--green-accent); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .gallery-item { border-radius: 12px; overflow: hidden; aspect-ratio: 1; background: rgba(255,255,255,.05); display: flex; align-items: center; justify-content: center; font-size: 36px; color: rgba(255,255,255,.15); }
+    .gallery-item.tall { grid-row: span 2; aspect-ratio: unset; min-height: 260px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--green-dark); color: var(--white); padding: 60px 5% 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand p { font-size: 13px; color: #9ca3af; line-height: 1.7; margin: 14px 0 24px; max-width: 260px; }
+    .footer-socials { display: flex; gap: 10px; }
+    .social-btn { width: 36px; height: 36px; background: rgba(255,255,255,.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #9ca3af; text-decoration: none; font-size: 14px; transition: background .2s, color .2s; }
+    .social-btn:hover { background: var(--green-accent); color: white; }
+    .footer-col h4 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 18px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul a { color: #9ca3af; text-decoration: none; font-size: 13px; transition: color .2s; }
+    .footer-col ul a:hover { color: var(--green-accent); }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; }
+    .footer-contact-item span:first-child { color: var(--green-accent); font-size: 15px; }
+    .footer-contact-item a, .footer-contact-item p { color: #9ca3af; font-size: 13px; text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--green-accent); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); padding-top: 24px; text-align: center; color: #6b7280; font-size: 13px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .page-hero-inner { grid-template-columns: 1fr; }
+      .hero-portrait { max-width: 420px; }
+      .bio-grid { grid-template-columns: 1fr; }
+      .edu-grid { grid-template-columns: repeat(2, 1fr); }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .videos-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 4%; }
+      .nav-links { display: none; }
+      .page-hero { padding: 110px 4% 60px; }
+      .bio-section, .timeline-section, .education-section, .certs-section, .skills-section, .gallery-section, .videos-section { padding: 60px 4%; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">🌱</div>
+    <div class="nav-logo-text">
+      <strong>Isaiah Maresi</strong>
+      <span>Career & Leadership Coach</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="project.html">Projects</a></li>
+    <li><a href="index.html#impact">Impact</a></li>
+    <li><a href="index.html#testimonials">Testimonials</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="btn-primary">Let's Work Together →</a>
+</nav>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div>
+      <a href="index.html" class="back-link">← Back to Home</a>
+      <div class="page-eyebrow">About Me</div>
+      <h1 class="page-headline">Helping People Turn<br/>Knowledge Into Action</h1>
+      <p class="page-sub">Coach, mentor, facilitator and consultant helping individuals and organizations close the gap between knowing and doing — through career coaching, entrepreneurship training, and leadership development across Kenya.</p>
+    </div>
+    <div class="hero-portrait">
+      <img src="about1.webp" alt="Isaiah hero portrait">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BIO ══ -->
+<section class="bio-section">
+  <div class="bio-grid">
+    <div>
+      <div class="section-eyebrow">My Story</div>
+      <h2 class="section-title">From the Field to the Framework</h2>
+      <p class="bio-text">Isaiah Maresi is a Career &amp; Leadership Coach, facilitator, and consultant based in Nairobi, Kenya, with a B.A. in Sociology from Moi University. For most people, there is a wide gap between what they know and what they actually do — and Isaiah has built his career closing that gap for young people, graduates, and emerging leaders.</p>
+      <p class="bio-text">Since 2020, Isaiah has worked with Shining Hope for Communities (SHOFCO), starting as a volunteer facilitator with the Shofco Urban Network (SUN) program and growing into his current role as Sustainable Livelihoods Officer. Along the way he has trained and equipped over 5,000 youth with employability and entrepreneurship skills, facilitated 90+ self-help groups, and mentored hundreds of small business owners in Nairobi's informal settlements.</p>
+      <div class="bio-highlight">"Knowing is not enough, we must apply — and willing is not enough, we must do. Doing what we know has always been the hard part for most people."</div>
+      <p class="bio-text">Isaiah uses the ACTION Model — Awareness → Clarity → Translation → Implementation → Ownership → Navigation — across everything from CV writing and career readiness to business mentorship, leadership coaching, and financial literacy training. He also serves as a SHOFCO SACCO delegate, a Global Volunteer Mentor with the Global Mentorship Initiative, and a volunteer Senior Leadership Facilitator with Taifa Teule Network.</p>
+      <p class="bio-text">He works with NGOs and development partners seeking outcome-focused programs, organizations investing in people development, and youth, graduates, and entrepreneurs ready to take ownership of their growth.</p>
+    </div>
+
+    <div class="bio-sidebar">
+      <div class="sidebar-card">
+        <h4>Quick Facts</h4>
+        <div class="info-row"><span class="label">Location</span><span class="value">Nairobi, Kenya</span></div>
+        <div class="info-row"><span class="label">Experience</span><span class="value">9+ Years</span></div>
+        <div class="info-row"><span class="label">Focus Areas</span><span class="value">Coaching · Training · Facilitation</span></div>
+        <div class="info-row"><span class="label">Current Role</span><span class="value">Sustainable Livelihoods Officer</span></div>
+        <div class="info-row"><span class="label">Availability</span><span class="value">Open to Opportunities</span></div>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Core Competencies</h4>
+        <div class="tag-list">
+          <span class="tag">Facilitation</span>
+          <span class="tag">Career Coaching</span>
+          <span class="tag">Organizational Leadership</span>
+          <span class="tag">Change Management</span>
+          <span class="tag">Cross-functional Team Leadership</span>
+          <span class="tag">Educational Leadership</span>
+          <span class="tag">Supervisory Skills</span>
+          <span class="tag">Time Management</span>
+          <span class="tag">Professional Coaching</span>
+          <span class="tag">Data Science</span>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h4>Download CV</h4>
+        <p style="font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:16px;">Get the full picture — education, experience, publications, and references.</p>
+        <a href="#" class="cv-btn">⬇ Download CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WORK HISTORY TIMELINE ══ -->
+<section class="timeline-section">
+  <div class="section-eyebrow">Work History</div>
+  <h2 class="section-title">Career Journey</h2>
+  <span class="section-line"></span>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="timeline-dot">🌿</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Oct 2023 – Present</div>
+        <div class="timeline-title">Sustainable Livelihoods Officer</div>
+        <div class="timeline-org">SHOFCO · Nairobi County, Kenya</div>
+        <p class="timeline-desc">Train and equip 5,000+ youth with employability and entrepreneurship skills through job-readiness and business management trainings, sourcing appropriate placements for participants. Facilitated business mentorship to 300+ young entrepreneurs and trained six refugee groups on USLA methodology and financial literacy under the Re-Build program.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🏦</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Feb 2025 – Feb 2026</div>
+        <div class="timeline-title">SHOFCO SACCO Delegate / Member Representative</div>
+        <div class="timeline-org">SHOFCO · Nairobi County, Kenya</div>
+        <p class="timeline-desc">Drove membership growth by 25%, recruiting 150+ new members. Facilitated quarterly financial education forums reaching 400+ members annually, provided loan advisory support to 120+ members, and resolved 95% of member complaints within agreed timelines.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🤝</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Jan 2023 – Oct 2023</div>
+        <div class="timeline-title">Shofco Urban Network (SUN) Program Lead Facilitator</div>
+        <div class="timeline-org">SHOFCO · Nairobi, Kenya</div>
+        <p class="timeline-desc">Facilitated, coordinated, and supervised 90+ self-help groups across urban slum communities. Launched a Ksh.50 savings challenge campaign, increasing saving culture and group attendance by 80%, and helped recruit 500+ members into SHOFCO SACCO within two years.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🌾</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Apr 2021 – Oct 2023</div>
+        <div class="timeline-title">Shofco Urban Network (SUN) Program Facilitator</div>
+        <div class="timeline-org">SHOFCO · Nairobi, Kenya</div>
+        <p class="timeline-desc">Introduced new mobilization techniques that grew SHGs from 30 to 500+ within one year during the COVID-19 period. Provided ongoing training and mentorship to 150+ SHG leaders and 750+ group members, with 40+ SHGs transformed into sustainable business enterprises.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🏡</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Jan 2020 – Mar 2021</div>
+        <div class="timeline-title">Shofco Urban Network (SUN) Program Volunteer Facilitator</div>
+        <div class="timeline-org">SHOFCO · Nairobi, Kenya</div>
+        <p class="timeline-desc">Mobilized, sensitized, and trained 86 SHGs and 7 CBOs on livelihood skills, financial literacy, and income-generating activities. Organized two mega community clean-ups in Mukuru slums by engaging groups and community members.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🧑‍🏫</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Jan 2026 – Present</div>
+        <div class="timeline-title">Global Volunteer Mentor</div>
+        <div class="timeline-org">Global Mentorship Initiative · Bellevue, Washington (Remote)</div>
+        <p class="timeline-desc">Provide career guidance and mentorship to college students and early-career professionals worldwide, focused on resume writing, interview preparation, and career planning, contributing to GMI's mission of empowering young professionals through structured virtual mentorship.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-dot">🗣️</div>
+      <div class="timeline-body">
+        <div class="timeline-date">Apr 2025 – Present</div>
+        <div class="timeline-title">Volunteer Senior Leadership Facilitator</div>
+        <div class="timeline-org">Taifa Teule Network · Nairobi County, Kenya</div>
+        <p class="timeline-desc">Leads weekly leadership coaching sessions for young leaders, building confident, proactive, and solutions-driven leadership. Trained 200+ leaders across community groups, youth programs, and organizations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDUCATION ══ -->
+<section class="education-section">
+  <div class="section-eyebrow">Academic Background</div>
+  <h2 class="section-title">Education</h2>
+  <span class="section-line"></span>
+
+  <div class="edu-grid" style="max-width:360px;margin:0 auto;">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-degree">Bachelor of Arts (BA) in Sociology</div>
+      <div class="edu-institution">Moi University</div>
+      <div class="edu-year">2014 – 2018</div>
+    </div>
+  </div>
+  <p style="text-align:center;color:var(--gray-mid);font-size:13px;margin-top:20px;max-width:700px;margin-left:auto;margin-right:auto;">Dissertation: "The Impact of Parenting Styles on Academic Performance of Students in Secondary Schools in Suna East Division, Migori County, Kenya" (2018, unpublished). Co-founded the Moi University Social Agencies chapter and took part in community service initiatives including a blood donation drive and outreach at Sweet Angels Children's Home, Eldoret.</p>
+</section>
+
+<!-- ══ CERTIFICATIONS ══ -->
+<section class="certs-section">
+  <div class="section-eyebrow">Professional Credentials</div>
+  <h2 class="section-title">Certifications & Training</h2>
+  <span class="section-line"></span>
+
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-badge">🌍</div>
+      <div class="cert-name">Mentor English Program</div>
+      <div class="cert-issuer">Global Mentorship Initiative</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">📄</div>
+      <div class="cert-name">CV/Resume Writing &amp; Career Readiness</div>
+      <div class="cert-issuer">SHOFCO / Self-Practice</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">💰</div>
+      <div class="cert-name">USLA Methodology &amp; Financial Literacy</div>
+      <div class="cert-issuer">SHOFCO Re-Build Program</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-badge">🧑‍🏫</div>
+      <div class="cert-name">Facilitation &amp; Training of Trainers</div>
+      <div class="cert-issuer">SHOFCO Urban Network (SUN)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS BARS ══ -->
+<section class="skills-section">
+  <div class="section-eyebrow">Capabilities</div>
+  <h2 class="section-title">Skills & Expertise</h2>
+  <span class="section-line"></span>
+
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title">💼 Coaching &amp; Facilitation</div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Facilitation</span><span>97%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:97%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Professional Coaching</span><span>94%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:94%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Career &amp; Leadership Coaching</span><span>92%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Educational Leadership</span><span>88%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">📐 Leadership &amp; Management</div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Organizational Leadership</span><span>92%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:92%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Change Management</span><span>87%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:87%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Cross-functional Team Leadership</span><span>89%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:89%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Supervisory Skills</span><span>90%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">🌱 Operations &amp; Analysis</div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Time Management</span><span>95%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:95%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Data Science</span><span>75%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:75%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Entrepreneurship Training</span><span>96%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:96%"></div></div>
+      </div>
+      <div class="skill-bar-item">
+        <div class="skill-bar-label"><span>Financial Literacy Training</span><span>93%</span></div>
+        <div class="skill-bar-track"><div class="skill-bar-fill" style="width:93%"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VIDEOS ══ -->
+<section class="videos-section">
+  <div class="section-eyebrow">In Action</div>
+  <h2 class="section-title">Watch &amp; Learn</h2>
+  <span class="section-line"></span>
+
+  <div class="videos-grid">
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/d90MKgppkUM" title="Isaiah Maresi — Coaching & Facilitation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <h4>Coaching in Action</h4>
+        <p>A look at how the ACTION Model is applied in real training sessions.</p>
+      </div>
+    </div>
+
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/Uxv3ENRjTLc" title="Isaiah Maresi — Career & Leadership Training" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-caption">
+        <h4>Career &amp; Leadership Training</h4>
+        <p>Inside a session on career readiness and leadership development.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PHOTO GALLERY ══ -->
+<section class="gallery-section">
+  <div class="section-eyebrow">Field Work</div>
+  <h2 class="section-title" style="color:var(--white)">From the Ground</h2>
+  <span class="section-line"></span>
+  <div class="gallery-grid">
+    <div class="gallery-item tall">📸</div>
+    <div class="gallery-item">📸</div>
+    <div class="gallery-item">📸</div>
+    <div class="gallery-item">📸</div>
+    <div class="gallery-item">📸</div>
+    <div class="gallery-item">📸</div>
+  </div>
+  <p style="text-align:center;color:var(--gray-mid);font-size:13px;margin-top:24px;">Replace placeholder tiles with real photos — training sessions, leadership workshops, and community facilitation.</p>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="index.html" class="nav-logo" style="margin-bottom:0">
+        <div class="nav-logo-icon">🌱</div>
+        <div class="nav-logo-text"><strong>Isaiah Maresi</strong><span>Career & Leadership Coach</span></div>
+      </a>
+      <p>Helping individuals &amp; organizations transform knowledge into ACTION — career coaching, entrepreneurship and financial literacy training across Kenya.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/isaiahmaresi" class="social-btn">in</a>
+        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn">gh</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Career &amp; Leadership Coaching</a></li>
+        <li><a href="#">Entrepreneurship Training</a></li>
+        <li><a href="#">Youth Employability Training</a></li>
+        <li><a href="#">CV/Resume Writing</a></li>
+        <li><a href="#">Business Mentorship</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Get in Touch</h4>
+      <div class="footer-contact-item"><span>📧</span><a href="mailto:maresiisaiah@gmail.com">maresiisaiah@gmail.com</a></div>
+      <div class="footer-contact-item"><span>📞</span><p>0705 694 510</p></div>
+      <div class="footer-contact-item"><span>📍</span><p>Nairobi, Kenya</p></div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Isaiah Maresi. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
