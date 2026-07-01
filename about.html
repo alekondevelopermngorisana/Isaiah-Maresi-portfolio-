@@ -3,7 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About – Isaiah Maresi</title>
+  <title>About – Isaiah Maresi | Career &amp; Leadership Coach</title>
+  <meta name="description" content="Learn about Isaiah Maresi's journey from Moi University graduate to Career & Leadership Coach — facilitating SHOFCO youth employability programs, leadership coaching, and global mentorship." />
+  <link rel="canonical" href="https://isaiahmaresi.com/about.html" />
+  <meta property="og:title" content="About Isaiah Maresi — Career & Leadership Coach" />
+  <meta property="og:description" content="Coach, mentor, facilitator and consultant helping youth and leaders bridge the Knowing-Doing gap." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:url" content="https://isaiahmaresi.com/about.html" />
+  <meta property="og:image" content="https://isaiahmaresi.com/images/hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +37,7 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       background: var(--green-dark);
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 5%; height: 70px;
@@ -42,6 +50,36 @@
     .nav-links { display: flex; list-style: none; gap: 28px; }
     .nav-links a { color: var(--gray-mid); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--green-accent); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px; height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 998;
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+    .nav-overlay.open { opacity: 1; visibility: visible; }
     .btn-primary { background: var(--green-accent); color: var(--white); border: none; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, transform .15s; }
     .btn-primary:hover { background: var(--green-bright); transform: translateY(-1px); }
 
@@ -71,17 +109,6 @@
       border-radius: 20px; overflow: hidden; height: 440px;
       box-shadow: 0 24px 60px rgba(0,0,0,.35);
     }
-    .portrait-placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(145deg, #2d5a27 0%, #1a3a15 60%, #0f2010 100%);
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: 14px; color: rgba(255,255,255,.25);
-    }
-    .portrait-placeholder img{
-      object-fit:contain;
-    }
-    .portrait-placeholder .icon { font-size: 72px; }
-    .portrait-placeholder p { font-size: 14px; }
 
     /* ── BIO ── */
     .bio-section { padding: 80px 5%; background: var(--white); }
@@ -101,7 +128,7 @@
     .info-row .value { color: var(--dark); font-weight: 600; text-align: right; }
     .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
     .tag { background: var(--green-light); color: var(--green-mid); border-radius: 20px; padding: 4px 12px; font-size: 12px; font-weight: 600; }
-    .cv-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--green-accent); color: var(--white); border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s; margin-top: 4px; }
+    .booknow-btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; background: var(--green-accent); color: var(--white); border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; text-decoration: none; transition: background .2s; margin-top: 4px; }
     .cv-btn:hover { background: var(--green-bright); }
 
     /* ── TIMELINE ── */
@@ -132,8 +159,11 @@
     .certs-section { padding: 80px 5%; background: var(--gray-light); }
     .certs-section .section-eyebrow, .certs-section .section-title { text-align: center; }
     .certs-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-    .cert-card { background: var(--white); border-radius: 12px; padding: 22px 18px; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-    .cert-badge { width: 52px; height: 52px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 12px; }
+    .cert-card { background: var(--white); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+    .cert-thumb { width: 100%; aspect-ratio: 4/3; overflow: hidden; background: #eee; }
+    .cert-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .cert-card-body { padding: 14px 14px 18px; }
+    .cert-badge { width: 40px; height: 40px; background: var(--green-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; margin: 0 auto 10px; }
     .cert-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 4px; line-height: 1.4; }
     .cert-issuer { font-size: 11px; color: var(--gray-mid); }
 
@@ -199,7 +229,25 @@
     }
     @media (max-width: 640px) {
       nav { padding: 0 4%; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        height: 100vh;
+        width: 78%;
+        max-width: 300px;
+        background: var(--green-dark);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 90px 30px 30px;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+        z-index: 999;
+        box-shadow: -10px 0 40px rgba(0,0,0,.3);
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 16px; }
       .page-hero { padding: 110px 4% 60px; }
       .bio-section, .timeline-section, .education-section, .certs-section, .skills-section, .gallery-section, .videos-section { padding: 60px 4%; }
       .edu-grid { grid-template-columns: 1fr; }
@@ -221,7 +269,7 @@
       <span>Career & Leadership Coach</span>
     </div>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
     <li><a href="index.html#services">Services</a></li>
@@ -230,8 +278,11 @@
     <li><a href="index.html#testimonials">Testimonials</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <a href="index.html#contact" class="btn-primary">Let's Work Together →</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ══ PAGE HERO ══ -->
 <section class="page-hero">
@@ -243,8 +294,7 @@
       <p class="page-sub">Coach, mentor, facilitator and consultant helping individuals and organizations close the gap between knowing and doing — through career coaching, entrepreneurship training, and leadership development across Kenya.</p>
     </div>
     <div class="hero-portrait">
-      <img src="about1.webp" alt="Isaiah hero portrait">
-      </div>
+      <img src="images/portrait-coach-headshot.webp" alt="Isaiah Maresi" style="width:100%;height:100%;object-fit:contain;" />
     </div>
   </div>
 </section>
@@ -289,9 +339,9 @@
       </div>
 
       <div class="sidebar-card">
-        <h4>Download CV</h4>
-        <p style="font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:16px;">Get the full picture — education, experience, publications, and references.</p>
-        <a href="#" class="cv-btn">⬇ Download CV (PDF)</a>
+        <h4>Book a Session</h4>
+<p style="font-size:13px;color:var(--gray-text);line-height:1.6;margin-bottom:16px;">Ready to take action? Let's connect and start working toward your goals.</p>
+<a href="index.html#contact" class="booknow-btn">Book Now →</a>
       </div>
     </div>
   </div>
@@ -396,29 +446,65 @@
 <!-- ══ CERTIFICATIONS ══ -->
 <section class="certs-section">
   <div class="section-eyebrow">Professional Credentials</div>
-  <h2 class="section-title">Certifications & Training</h2>
+  <h2 class="section-title">Certifications &amp; Training</h2>
   <span class="section-line"></span>
 
   <div class="certs-grid">
     <div class="cert-card">
-      <div class="cert-badge">🌍</div>
-      <div class="cert-name">Mentor English Program</div>
-      <div class="cert-issuer">Global Mentorship Initiative</div>
+      <div class="cert-thumb"><img src="images/cert-gmi-mentor.webp" alt="Certified Mentor certificate, Global Mentorship Initiative" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Certified Mentor</div>
+        <div class="cert-issuer">Global Mentorship Initiative · 2026</div>
+      </div>
     </div>
     <div class="cert-card">
-      <div class="cert-badge">📄</div>
-      <div class="cert-name">CV/Resume Writing &amp; Career Readiness</div>
-      <div class="cert-issuer">SHOFCO / Self-Practice</div>
+      <div class="cert-thumb"><img src="images/cert-taifa-teule.webp" alt="Certificate of Excellence, Taifa Teule Leadership Experience" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Certificate of Excellence — Senior Facilitator</div>
+        <div class="cert-issuer">Taifa Teule Leadership Experience · 2025</div>
+      </div>
     </div>
     <div class="cert-card">
-      <div class="cert-badge">💰</div>
-      <div class="cert-name">USLA Methodology &amp; Financial Literacy</div>
-      <div class="cert-issuer">SHOFCO Re-Build Program</div>
+      <div class="cert-thumb"><img src="images/cert-hope-mhmc.webp" alt="My Health My Choice facilitator certificate" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">My Health My Choice (MHMC) Facilitator</div>
+        <div class="cert-issuer">HOPE worldwide Kenya / PEPFAR DREAMS · 2024</div>
+      </div>
     </div>
     <div class="cert-card">
-      <div class="cert-badge">🧑‍🏫</div>
-      <div class="cert-name">Facilitation &amp; Training of Trainers</div>
-      <div class="cert-issuer">SHOFCO Urban Network (SUN)</div>
+      <div class="cert-thumb"><img src="images/cert-hope-hcbf.webp" alt="Healthy Choices for a Better Future facilitator certificate" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Healthy Choices for a Better Future (HCBF) Facilitator</div>
+        <div class="cert-issuer">HOPE worldwide Kenya · 2024</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-thumb"><img src="images/cert-tie-leadership.webp" alt="Certificate of Achievement, Start Right Leadership Masterclass" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Start Right Leadership Masterclass</div>
+        <div class="cert-issuer">TiE Events · 2023</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-thumb"><img src="images/cert-yali-network.webp" alt="YALI Network certificate, Community Organizing for Action" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Community Organizing for Action</div>
+        <div class="cert-issuer">YALI Network · 2022</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-thumb"><img src="images/cert-dwb-foundation.webp" alt="Certificate of Service, DWB Foundation" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Certificate of Service</div>
+        <div class="cert-issuer">DWB Foundation · 2019–2021</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-thumb"><img src="images/cert-un-volunteers.webp" alt="Certificate of Volunteer Service, UN Volunteers" /></div>
+      <div class="cert-card-body">
+        <div class="cert-name">Certificate of Volunteer Service</div>
+        <div class="cert-issuer">UN Volunteers · 2019</div>
+      </div>
     </div>
   </div>
 </section>
@@ -527,14 +613,14 @@
   <h2 class="section-title" style="color:var(--white)">From the Ground</h2>
   <span class="section-line"></span>
   <div class="gallery-grid">
-    <div class="gallery-item tall">📸</div>
-    <div class="gallery-item">📸</div>
-    <div class="gallery-item">📸</div>
-    <div class="gallery-item">📸</div>
-    <div class="gallery-item">📸</div>
-    <div class="gallery-item">📸</div>
+    <div class="gallery-item tall"><img src="images/construction field work.webp" alt="Isaiah Maresi facilitating a training session" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="images/panel.webp" alt="Isaiah Maresi visiting a school for a mentorship outreach" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="images/sun.webp" alt="Isaiah Maresi — WideNet Vision purpose campaign" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="images/volunteer.webp" alt="Isaiah Maresi — leadership is a choice campaign" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="images/students.webp" alt="Isaiah Maresi — financial literacy coaching session flyer" style="width:100%;height:100%;object-fit:cover;" /></div>
+    <div class="gallery-item"><img src="images/training students.webp" alt="Isaiah Maresi coaching session — break the cycle campaign" style="width:100%;height:100%;object-fit:cover;" /></div>
   </div>
-  <p style="text-align:center;color:var(--gray-mid);font-size:13px;margin-top:24px;">Replace placeholder tiles with real photos — training sessions, leadership workshops, and community facilitation.</p>
+
 </section>
 
 <!-- ══ FOOTER ══ -->
@@ -547,9 +633,10 @@
       </a>
       <p>Helping individuals &amp; organizations transform knowledge into ACTION — career coaching, entrepreneurship and financial literacy training across Kenya.</p>
       <div class="footer-socials">
-        <a href="https://www.linkedin.com/in/isaiahmaresi" class="social-btn">in</a>
-        <a href="#" class="social-btn">tw</a>
-        <a href="#" class="social-btn">gh</a>
+        <a href="https://www.facebook.com/isaiah.abwao.1" class="social-btn" aria-label="Facebook">f</a>
+        <a href="https://x.com/Maresiisaiah" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="https://www.linkedin.com/in/isaiahmaresi" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="https://youtube.com/@isaiahmaresi?si=SMQL9uwOUteO3XVm" class="social-btn" aria-label="YouTube">▶</a>
       </div>
     </div>
     <div class="footer-col">
@@ -565,11 +652,11 @@
     <div class="footer-col">
       <h4>Services</h4>
       <ul>
-        <li><a href="#">Career &amp; Leadership Coaching</a></li>
-        <li><a href="#">Entrepreneurship Training</a></li>
-        <li><a href="#">Youth Employability Training</a></li>
-        <li><a href="#">CV/Resume Writing</a></li>
-        <li><a href="#">Business Mentorship</a></li>
+        <li><a href="index.html#services">Career &amp; Leadership Coaching</a></li>
+        <li><a href="index.html#services">Entrepreneurship Training</a></li>
+        <li><a href="index.html#services">Youth Employability Training</a></li>
+        <li><a href="index.html#services">CV/Resume Writing</a></li>
+        <li><a href="index.html#services">Business Mentorship</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -582,5 +669,30 @@
   <div class="footer-bottom">© 2026 Isaiah Maresi. All rights reserved.</div>
 </footer>
 
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeMenu() {
+    navToggle.classList.remove('open');
+    navLinksEl.classList.remove('open');
+    navOverlay.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  function openMenu() {
+    navToggle.classList.add('open');
+    navLinksEl.classList.add('open');
+    navOverlay.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  navToggle.addEventListener('click', () => {
+    navLinksEl.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  navOverlay.addEventListener('click', closeMenu);
+  navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
 </body>
 </html>
