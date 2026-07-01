@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects – Isaiah Maresi</title>
   <meta name="description" content="Real programs led and facilitated by Isaiah Maresi: youth employability training, SHOFCO self-help group facilitation, SACCO leadership, and global career mentorship." />
+  <link rel="canonical" href="https://isaiahmaresi.com/project.html" />
+  <meta property="og:title" content="Projects — Isaiah Maresi" />
+  <meta property="og:description" content="Youth employability training, self-help group facilitation, leadership coaching, and global mentorship programs led by Isaiah Maresi." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://isaiahmaresi.com/project.html" />
+  <meta property="og:image" content="https://isaiahmaresi.com/images/hero.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +36,7 @@
     body { font-family: var(--font-body); color: var(--dark); background: var(--white); line-height: 1.6; overflow-x: hidden; }
 
     /* ── NAV ── */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--green-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 70px; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--green-dark); display: flex; align-items: center; justify-content: space-between; padding: 0 5%; height: 70px; }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
     .nav-logo-icon { width: 40px; height: 40px; background: var(--green-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; }
     .nav-logo-text { color: var(--white); }
@@ -38,6 +45,36 @@
     .nav-links { display: flex; list-style: none; gap: 28px; }
     .nav-links a { color: var(--gray-mid); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--green-accent); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 32px; height: 32px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+    .nav-toggle span {
+      display: block; width: 100%; height: 2px;
+      background: var(--white); border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-overlay {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 998;
+      opacity: 0; visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+    .nav-overlay.open { opacity: 1; visibility: visible; }
     .btn-primary { background: var(--green-accent); color: var(--white); border: none; padding: 10px 22px; border-radius: 25px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: background .2s, transform .15s; }
     .btn-primary:hover { background: var(--green-bright); transform: translateY(-1px); }
 
@@ -76,10 +113,8 @@
     /* image side */
     .project-img-block { display: flex; flex-direction: column; gap: 14px; }
     .project-main-img { border-radius: 16px; overflow: hidden; height: 320px; }
-    .project-img-placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #2d5a27 0%, #1a3a15 100%); display: flex; align-items: center; justify-content: center; font-size: 52px; color: rgba(255,255,255,.2); }
     .project-img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .project-img-small { border-radius: 10px; overflow: hidden; height: 140px; }
-    .project-img-small .project-img-placeholder { font-size: 32px; }
 
     /* text side */
     .project-number { font-size: 48px; font-weight: 800; color: var(--green-light); font-family: var(--font-display); line-height: 1; margin-bottom: 16px; }
@@ -141,7 +176,25 @@
     }
     @media (max-width: 640px) {
       nav { padding: 0 4%; }
-      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: 0;
+        height: 100vh;
+        width: 78%;
+        max-width: 300px;
+        background: var(--green-dark);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        padding: 90px 30px 30px;
+        transform: translateX(100%);
+        transition: transform .35s ease;
+        z-index: 999;
+        box-shadow: -10px 0 40px rgba(0,0,0,.3);
+      }
+      .nav-links.open { transform: translateX(0); }
+      .nav-links a { font-size: 16px; }
       .page-hero { padding: 110px 4% 60px; }
       .projects-wrapper { padding: 0 4% 60px; }
       .project-img-row { grid-template-columns: 1fr; }
@@ -161,7 +214,7 @@
       <span>Career & Leadership Coach</span>
     </div>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="index.html#services">Services</a></li>
@@ -170,8 +223,11 @@
     <li><a href="index.html#testimonials">Testimonials</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <a href="index.html#contact" class="btn-primary">Let's Work Together →</a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-overlay" id="navOverlay"></div>
 
 <!-- ══ PAGE HERO ══ -->
 <section class="page-hero">
@@ -200,11 +256,11 @@
   <article class="project-article" id="project-employability">
     <div class="project-img-block">
       <div class="project-main-img">
-        <div class="project-img-placeholder">🎯</div>
+        <img src="images/infographic-mentorship-sessions.webp" alt="Youth employability training program" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="project-img-row">
-        <div class="project-img-small"><div class="project-img-placeholder">📄</div></div>
-        <div class="project-img-small"><div class="project-img-placeholder">🤝</div></div>
+        <div class="project-img-small"><img src="images/poster-financial-literacy.webp" alt="Financial literacy and entrepreneurship session" style="width:100%;height:100%;object-fit:cover;" /></div>
+        <div class="project-img-small"><img src="images/photo-school-visit.webp" alt="Community mentorship outreach" style="width:100%;height:100%;object-fit:cover;" /></div>
       </div>
     </div>
 
@@ -253,11 +309,11 @@
   <article class="project-article reverse" id="project-vsla">
     <div class="project-img-block">
       <div class="project-main-img">
-        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e,#0d2040)">🤝</div>
+        <img src="images/poster-stuck-in-life.webp" alt="SHOFCO Urban Network self-help group facilitation" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
       </div>
       <div class="project-img-row">
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e,#0d2040)">💰</div></div>
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a6e,#0d2040)">📒</div></div>
+        <div class="project-img-small"><img src="images/success requires preparation.webp" alt="Community savings and financial literacy" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div class="project-img-small"><img src="images/strangers support.webp" alt="Group facilitation session" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
       </div>
     </div>
 
@@ -306,11 +362,11 @@
   <article class="project-article" id="project-leadership">
     <div class="project-img-block">
       <div class="project-main-img">
-        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a15,#0f2a0a)">🧭</div>
+        <img src="images/poster-leadership-quote.webp" alt="Weekly leadership coaching session" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
       </div>
       <div class="project-img-row">
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a15,#0f2a0a)">🗣️</div></div>
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#1a3a15,#0f2a0a)">🏆</div></div>
+        <div class="project-img-small"><img src="images/find your way.webp" alt="Leadership workshop facilitation" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div class="project-img-small"><img src="images/dwb session.webp" alt="Taifa Teule leadership certificate" style="width:100%;height:100%;object-fit:cover;" /></div>
       </div>
     </div>
 
@@ -354,11 +410,11 @@
   <article class="project-article reverse" id="project-mentorship">
     <div class="project-img-block">
       <div class="project-main-img">
-        <div class="project-img-placeholder" style="background:linear-gradient(135deg,#3a2a1a,#5a3d1a)">🌍</div>
+        <img src="images/career.webp" alt="Global Mentorship Initiative career mentorship" style="width:100%;height:100%;object-fit:cover;" />
       </div>
       <div class="project-img-row">
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#3a2a1a,#5a3d1a)">📄</div></div>
-        <div class="project-img-small"><div class="project-img-placeholder" style="background:linear-gradient(135deg,#3a2a1a,#5a3d1a)">💼</div></div>
+        <div class="project-img-small"><img src="images/career coach.webp" alt="Certified Mentor, Global Mentorship Initiative" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
+        <div class="project-img-small"><img src="images/cv questions.webp" alt="Isaiah Maresi" style="width:100%;height:100%;object-fit:cover;object-position:center top;" /></div>
       </div>
     </div>
 
@@ -418,10 +474,11 @@
         <div class="nav-logo-text"><strong>Isaiah Maresi</strong><span>Career & Leadership Coach</span></div>
       </a>
       <p>Helping individuals &amp; organizations transform knowledge into ACTION — career coaching, entrepreneurship and financial literacy training across Kenya.</p>
-      <div class="footer-socials">
-        <a href="#" class="social-btn">in</a>
-        <a href="#" class="social-btn">tw</a>
-        <a href="#" class="social-btn">gh</a>
+       <div class="footer-socials">
+        <a href="https://www.facebook.com/isaiah.abwao.1" class="social-btn" aria-label="Facebook">f</a>
+        <a href="https://x.com/Maresiisaiah" class="social-btn" aria-label="Twitter">𝕏</a>
+        <a href="https://www.linkedin.com/in/isaiahmaresi" class="social-btn" aria-label="LinkedIn">in</a>
+        <a href="https://youtube.com/@isaiahmaresi?si=SMQL9uwOUteO3XVm" class="social-btn" aria-label="YouTube">▶</a>
       </div>
     </div>
     <div class="footer-col">
@@ -453,5 +510,30 @@
   <div class="footer-bottom">© 2026 Isaiah Maresi. All rights reserved.</div>
 </footer>
 
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
+
+  function closeMenu() {
+    navToggle.classList.remove('open');
+    navLinksEl.classList.remove('open');
+    navOverlay.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  function openMenu() {
+    navToggle.classList.add('open');
+    navLinksEl.classList.add('open');
+    navOverlay.classList.add('open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  navToggle.addEventListener('click', () => {
+    navLinksEl.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  navOverlay.addEventListener('click', closeMenu);
+  navLinksEl.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+</script>
 </body>
 </html>
